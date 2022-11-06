@@ -3,18 +3,19 @@
 ## Simple usage
 
 1) Create a template:
-````
-:set filetype=python
-:FtCreate
-" write whatever template code you want
-:wq
-```
+
+   ```vim
+   :set filetype=python
+   :FtCreate
+   " write whatever template code you want
+   :wq
+   ```
 
 2) Create a new file and load the template:
-```
-:set filetype=python
-:Ft
-```
+   ```
+   :set filetype=python
+   :Ft
+   ```
 
 ## Installation
 
