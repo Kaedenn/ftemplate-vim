@@ -1,6 +1,6 @@
 " File: ftemplate.vim
 " Author: Kaedenn (kaedenn AT gmail DOT com)
-" Version: 1.0.0
+" Version: 1.1.0
 "
 " The "ftemplate" plugin provides certain file templates to simplify
 " repetitive boilerplate. Templates are small ".t" files present in the
@@ -192,10 +192,8 @@ if !exists("g:ftemplate_no_ft")
   command! -nargs=1 FtLoad call FT_LoadTemplate(<q-args>)
   command! FtList echo "templates:" join(FT_ListTemplates(), " ")
 
-  command! -nargs=1 FtEdit call FT_EditTemplate(<q-args>)
+  command! -nargs=? FtEdit call FT_EditTemplate(<q-args>)
   command! -nargs=1 FtEditFor call FT_EditNamedTemplate(<q-args>)
-  command! -nargs=? FtCreate call FT_EditTemplate(<q-args>)
-  command! -nargs=1 FtCreateFor call FT_EditNamedTemplate(<q-args>)
 endif
 
 let g:ftemplate_loaded = 1

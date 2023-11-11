@@ -3,7 +3,6 @@
 ## Simple usage
 
 1) Create a template:
-
    ```vim
    :set filetype=python
    :FtCreate
@@ -12,7 +11,7 @@
    ```
 
 2) Create a new file and load the template:
-   ```
+   ```vim
    :set filetype=python
    :Ft
    ```
@@ -45,6 +44,12 @@ To edit (or create) a named template for the current filetype, invoke `:FtEdit <
 
 To edit (or create) a specific template without using the filetype, invoke `:FtEditFor <template>`. Note that the `.t` extension is added automatically.
 
+## Template configuration scripts
+
+This script does not interpret modelines. To apply settings (like tabstop, shiftwidth, etc), you can place additional commands in a file with the extension `.v`.
+
+This file must have the same name as the `.t` file it references, but with the extension `.v`. If this file exists, then it is executed (in a `sandbox`) after its template is loaded.
+
 ## Listing templates
 
 Invoke `:FtList` to list the available templates.
@@ -57,9 +62,21 @@ To load a named template for the current filetype, invoke `:Ft <name>`.
 
 To load a specific template without using the filetype, invoke `:FtLoad <template>`. Note that the `.t` extension is added automatically.
 
-## Template configuration scripts
+## Command list
 
-You can place additional commands in a file with the extension `.v`. This file must have the same name as the `.t` file it references, but with the extension `.v`. If this file exists, then it is executed (in a `sandbox`) after its template is loaded.
+`:Ft` - Apply the template `&filetype . '.t'` to the current buffer
+
+`:Ft <label>` - Apply the template `&filetype . '-' . label . '.t'` to the current buffer
+
+`:FtLoad <filename>` - Apply the template `filename . '.t'` to the current buffer
+
+`:FtList` - List the known templates
+
+`:FtEdit` - Open the template `&filetype . '.t'` in the current buffer
+
+`:FtEdit <label>` - Open the template `&filetype . '-' . label . '.t'` in the current buffer
+
+`:FtEditFor <filename>` - Open the template `filename . '.t'` in the current buffer
 
 ## Variables
 
